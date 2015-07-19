@@ -1,0 +1,17 @@
+{
+    "name": "atuin/atuin-routes",
+    "description": "Atuin routing system based on cyneek/yii2-routes",
+    "keywords": ["yii", "yii2", "routes", "atuin"],
+    "type": "yii2-extension",
+    "version": "0.1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joseba",
+            "email": "joseba.juaniz@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "atuin\\atuin\\routes\\": "" }
+    }
+}
