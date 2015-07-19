@@ -12,9 +12,9 @@ use yii\helpers\Html;
 /**
  * Class Widget
  * @package atuin\menus
- * 
+ *
  * Specific menu widget for the Atuin admin panel
- * 
+ *
  */
 class Widget extends \yii\widgets\Menu
 {
@@ -41,6 +41,30 @@ class Widget extends \yii\widgets\Menu
      * When set to false or null, no heading container will be displayed.
      */
     public $header = FALSE;
+
+
+    /**
+     * @var array list of sidenav menu items. Each menu item should be an array of the following structure:
+     *
+     * - label: string, optional, specifies the menu item label. When [[encodeLabels]] is true, the label
+     *   will be HTML-encoded. If the label is not specified, an empty string will be used.
+     * - icon: string, optional, specifies the glyphicon name to be placed before label.
+     * - url: string or array, optional, specifies the URL of the menu item. It will be processed by [[Url::to]].
+     *   When this is set, the actual menu item content will be generated using [[linkTemplate]];
+     * - visible: boolean, optional, whether this menu item is visible. Defaults to true.
+     * - items: array, optional, specifies the sub-menu items. Its format is the same as the parent items.
+     * - active: boolean, optional, whether this menu item is in active state (currently selected).
+     *   If a menu item is active, its CSS class will be appended with [[activeCssClass]].
+     *   If this option is not set, the menu item will be set active automatically when the current request
+     *   is triggered by [[url]]. For more details, please refer to [[isItemActive()]].
+     * - template: string, optional, the template used to render the content of this menu item.
+     *   The token `{url}` will be replaced by the URL associated with this menu item,
+     *   and the token `{label}` will be replaced by the label of the menu item.
+     *   If this option is not set, [[linkTemplate]] will be used instead.
+     * - options: array, optional, the HTML attributes for the menu item tag.
+     *
+     */
+    public $items;
 
 
     public function run()
