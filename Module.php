@@ -1,7 +1,7 @@
 <?php
 
 
-namespace atuin\routes;
+namespace atuin\menus;
 
 
 class Module extends \atuin\skeleton\ComposerModule

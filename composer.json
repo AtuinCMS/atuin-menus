@@ -1,7 +1,7 @@
 {
-    "name": "atuin/atuin-routes",
-    "description": "Atuin routing system based on cyneek/yii2-routes",
-    "keywords": ["yii", "yii2", "routes", "atuin"],
+    "name": "atuin/atuin-menus",
+    "description": "Atuin menu system based on cyneek-menu",
+    "keywords": ["yii", "yii2", "menu", "atuin"],
     "type": "yii2-extension",
     "version": "0.1",
     "license": "MIT",
@@ -12,6 +12,6 @@
         }
     ],
     "autoload": {
-        "psr-4": { "atuin\\atuin\\routes\\": "" }
+        "psr-4": { "atuin\\atuin\\menus\\": "" }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace atuin\routes\config;
+namespace atuin\menus\config;
 
 use atuin\config\models\ModelConfig;
 
