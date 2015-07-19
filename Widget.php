@@ -77,7 +77,7 @@ class Widget extends \yii\widgets\Menu
         // Adds the header
         if ($this->header)
         {
-            $encodeHeader = ArrayHelper::getValue($this->options, 'encodeHeader', FALSE);
+            $encodeHeader = ArrayHelper::getValue($this->options, 'encodeHeader', TRUE);
 
             $header = strtr($this->headerTemplate, [
                 '{header}' => (($encodeHeader) ? Html::encode($this->header) : $this->header),
