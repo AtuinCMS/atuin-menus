@@ -1,13 +1,13 @@
 <?php
 
 
-
 namespace atuin\menus;
 
 use cyneek\yii2\menu\models\MenuItems;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * Class Widget
@@ -24,15 +24,14 @@ class Widget extends \yii\widgets\Menu
      * In this template, the token `{label}` will be replaced with the label of the menu item.
      * This property will be overridden by the `template` option set in individual menu items via [[items]].
      */
-    public $parentTemplate = '<a href="#">{label} <i class="fa fa-angle-left pull-right"></i> </a>';
+    public $parentTemplate = '<a href="#">{label}<i class="fa fa-angle-left pull-right"></i> </a>';
 
     /**
      * @var string prefix for the icon in [[items]]. This string will be prepended
      * before the icon name to get the icon CSS class. This defaults to `glyphicon glyphicon-`
      * for usage with glyphicons available with Bootstrap.
      */
-    public $iconPrefix = 'pull-right glyphicon glyphicon-';
-
+    public $iconPrefix = 'glyphicon glyphicon-';
 
     public $headerTemplate = '<ul class="sidebar-menu"><li class="header">{header}</li></ul>';
 
@@ -179,21 +178,46 @@ class Widget extends \yii\widgets\Menu
         if (array_key_exists('icon', $item))
         {
             $options = ArrayHelper::getValue($item, 'options', []);
-            $iconPrefix = ArrayHelper::getValue($options, 'iconPrefix', $this->iconPrefix);
+            $iconOptions['class'] = ArrayHelper::getValue($options, 'iconPrefix', $this->iconPrefix) . $item['icon'];
+            $tag = ArrayHelper::remove($options, 'iconTag', 'i');
 
-            $item['label'] = '<span class="' . $iconPrefix . $item['icon'] . '"></span>' . $item['label'];
+            $item['icon'] = Html::tag($tag, '', $iconOptions);
+        } else
+        {
+            $item['icon'] = '';
         }
+
+        $response = '';
 
         if (array_key_exists('items', $item))
         {
             $template = ArrayHelper::getValue($item, 'template', $this->parentTemplate);
 
-            return strtr($template, [
+            $response = strtr($template, [
+                '{label}' => $item['label'],
+            ]);
+        } elseif (isset($item['url']))
+        {
+            $template = ArrayHelper::getValue($item, 'template', $this->linkTemplate);
+
+            $response = strtr($template, [
+                '{url}' => Html::encode(Url::to($item['url'])),
+                '{label}' => $item['label'],
+            ]);
+        } else
+        {
+            $template = ArrayHelper::getValue($item, 'template', $this->labelTemplate);
+
+            $response = strtr($template, [
                 '{label}' => $item['label'],
             ]);
         }
 
-        return parent::renderItem($item);
+        $response = strtr($response, [
+            '{icon}' => $item['icon'],
+        ]);
+
+        return $response;
     }
 
 }
