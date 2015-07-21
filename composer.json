@@ -12,6 +12,6 @@
         }
     ],
     "autoload": {
-        "psr-4": { "atuin\\atuin\\menus\\": "" }
+        "psr-4": { "atuin\\menus\\": "" }
     }
 }
