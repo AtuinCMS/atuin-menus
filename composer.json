@@ -1,5 +1,5 @@
 {
-    "name": "atuin/atuin-menus",
+    "name": "atuin/menus",
     "description": "Atuin menu system based on cyneek-menu",
     "keywords": ["yii", "yii2", "menu", "atuin"],
     "type": "yii2-extension",
