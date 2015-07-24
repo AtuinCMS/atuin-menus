@@ -63,7 +63,6 @@ class AtuinConfig extends \atuin\skeleton\config\AtuinConfig
      */
     public function downConfig()
     {
-        $this->configItems->deleteConfig();
     }
 
     /**
