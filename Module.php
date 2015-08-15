@@ -8,9 +8,7 @@ class Module extends \atuin\skeleton\ComposerModule
 {
     protected static $_id = 'atuin-menus';
 
-    protected static $_version = '0.0
-    
-    ';
+    protected static $_version = '0.0.1';
     /**
      * Checks if is a core module, atuin won't be able to uninstall or deactivate this module
      *
