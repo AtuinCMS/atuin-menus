@@ -209,7 +209,7 @@ class Widget extends \yii\widgets\Menu
             $template = ArrayHelper::getValue($item, 'template', $this->labelTemplate);
 
             $response = strtr($template, [
-                '{label}' => $item['label'],
+                '{label}' => Yii::t('menu', $item['label']),
             ]);
         }
 
